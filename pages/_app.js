@@ -13,6 +13,7 @@ export default function App ({ Component, pageProps }) {
     return (
         <Container>
             <GlobalStyle />
+            
             <Link href="/page1">
                 <a>page1</a>
             </Link>
