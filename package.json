@@ -4,15 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "npx next build && npx next start",
+    "start:prod": "npx next build && npx next export && NODE_ENV=production node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-plugin-styled-components": "^1.12.0",
+    "express": "^4.17.1",
     "file-loader": "^6.2.0",
+    "lodash.throttle": "^4.1.1",
     "next": "^10.2.3",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.0",
+    "styled-reset": "^4.3.4"
   }
 }

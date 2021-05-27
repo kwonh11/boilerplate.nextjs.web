@@ -1,11 +1,19 @@
 import Head from 'next/head';
 import Icon from '../static/icon.png';
 import Link from 'next/link';
+import {add} from '../src/utils';
+import styled from 'styled-components';
+
+
+const BlueP = styled.div`
+    color: red;
+    font-size: 18px;
+`;
 
 function Page1() {
     return (
         <div>
-            <p> this is home page </p>
+            <BlueP> {`10 + 20 = ${add(10,20)}`}</BlueP>
             <img src={Icon} />
             <Head>
                 <title>page1</title>
@@ -13,17 +21,11 @@ function Page1() {
             <Head>
                 <meta name="description" content="hello world"></meta>
             </Head>
-            <div>
+            {/* <div>
                 <Link href="/page2">
                     <a>page2로 이동</a>
                 </Link>
-            </div>
-            <style jsx>{`
-                p {
-                    color: blue;
-                    font-size: 18pt;
-                }
-            `}</style>
+            </div> */}
         </div>
     )
 }
