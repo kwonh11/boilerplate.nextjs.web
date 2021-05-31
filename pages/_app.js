@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled, { createGlobalStyle, css } from "styled-components";
 import reset from "styled-reset";
+import storeWrapper from "../src/redux/store";
 
 const Container = styled.div`
   width: 100%;
@@ -17,7 +18,7 @@ const GNB = styled.div`
   height: 50px;
   position: fixed;
 `;
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   return (
     <Container>
       <GlobalStyle />
@@ -33,3 +34,4 @@ export default function App({ Component, pageProps }) {
     </Container>
   );
 }
+export default storeWrapper.withRedux(App);
