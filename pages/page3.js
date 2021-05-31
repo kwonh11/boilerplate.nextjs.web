@@ -36,6 +36,8 @@ export default function FullPage() {
     // const setPageIndexWithThrottle = throttle((index) => {
     //     setCurrentPageIndex(index)
     // }, 1500);
+
+    // 마우스 휠 이벤트
     const handleIndex = useCallback(throttle((e)=>{
         if (new Date().getSeconds() !== timeRef.current) {
             if (e.deltaY < 0) { 
@@ -50,6 +52,7 @@ export default function FullPage() {
         timeRef.current = new Date().getSeconds();
     }, 500), [currentPageIndex]);
 
+    // 모바일 드래그 이벤트
     const handleTouchStart = (e) => {
         const {clientY} = e.changedTouches[0];
         positionRef.current = clientY;
@@ -68,7 +71,6 @@ export default function FullPage() {
     const pageUp = () => setCurrentPageIndex(currentPageIndex === 0 ? 0 : currentPageIndex - 1); 
     const pageDown = () => setCurrentPageIndex(currentPageIndex === 3 ? 3 : currentPageIndex + 1);
     
-    console.log(currentPageIndex);
     return (
         <Container ref={containerRef} onWheel={handleIndex} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
             <Page ref={pageRef} color="green" index={currentPageIndex} itemHeight={pageRef.current.offsetHeight}>
