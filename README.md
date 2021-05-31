@@ -1,10 +1,10 @@
 # nextjs boiler plate
 
->타입스크립트 설정 - path alias 포함
->eslint, prettier 설정 - vsc setting.json 설정 필요
->redux, redux-saga 설정 - ducks 패턴
->fullPage ui
-> styled-components 설정
+> - 타입스크립트 설정 - path alias 포함
+> - eslint, prettier 설정 - vsc setting.json 설정 필요
+> - redux, redux-saga 설정 - ducks 패턴
+> - fullPage ui
+> - styled-components 설정
 
 
 ```ts
