@@ -1,9 +1,6 @@
 import styled from "styled-components";
 import { useState, useRef, useEffect, useCallback } from "react";
 import throttle from "lodash.throttle";
-import debounce from "lodash.debounce";
-import dynamic from "next/dynamic";
-import {useSelector} from 'react-redux';
 
 const Container = styled.div`
   width: 100%;
@@ -15,7 +12,7 @@ const Page = styled.div`
   height: 100vh;
   background-color: ${(props) => props.color};
   transform: translateY(-${(props) => props.index * props.itemHeight}px);
-  transition: transform 0.3s ease-in;
+  transition: transform 0.5s ease-out;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,20 +20,12 @@ const Page = styled.div`
   font-weight: bold;
 `;
 
-// const DynamicComponentWithNoSSR = dynamic(() => Promise.resolve(FullPage), {ssr: false});
-// export default DynamicComponentWithNoSSR;
-
 export default function FullPage() {
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
-  const containerRef = useRef();
   const pageRef = useRef(0);
   const timeRef = useRef(new Date().getSeconds);
   const positionRef = useRef(0);
-  // const setPageIndexWithThrottle = throttle((index) => {
-  //     setCurrentPageIndex(index)
-  // }, 1500);
-  const {open, content} = useSelector(state => state.common.bottomAlert);
-  console.log("open, content" , open, content);
+
   // 마우스 휠 이벤트
   const handleIndex = useCallback(
     throttle((e) => {
@@ -78,7 +67,6 @@ export default function FullPage() {
 
   return (
     <Container
-      ref={containerRef}
       onWheel={handleIndex}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
