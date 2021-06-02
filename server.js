@@ -10,9 +10,6 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
     const server = express();
     
-    server.get('/page/:id', (req, res) => {
-        res.redirect(`/page${req.params.id}`);
-    });
     server.get('*', (req,res) => {
         return handle(req, res);
     });

@@ -10,9 +10,10 @@ export const logger = (store) => (next) => (action) => {
 
 // 에러 리포트
 export const errorReport = (store) => (next) => (action) => {
+  // 에러 dispatch인 경우
   if (action.type.includes("_ERROR")) {
     // slack 
-    // action.payload, store 포함
+    // action.type, action.payload, store 포함해 전달
 
   }
 }

@@ -26,6 +26,7 @@ export const INITIAL_STATE = {
     open: false,
     content: "hello next",
   },
+  envirionment: process.env.NODE_ENV,
 };
 
 interface SetBottomAlertAction {
