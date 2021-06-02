@@ -5,7 +5,8 @@
 > - redux, redux-saga 설정 - ducks 패턴
 > - fullPage ui
 > - styled-components 설정
-
+> - axios token intercepter 코드 (커스텀필요)
+> - 환경변수 파일 추가
 
 ```ts
 // vsc setting.json
@@ -13,7 +14,7 @@
     "editor.suggestSelection": "first",
     "prettier.printWidth": 80,
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true 
+        "source.fixAll.eslint": true
     },
     "editor.formatOnSave": true,
     "workbench.startupEditor": "welcomePage",
@@ -28,7 +29,7 @@
     "liveServer.settings.donotShowInfoMsg": true,
     "json.maxItemsComputed": 50000,
     "[json]": {
-        
+
         "editor.quickSuggestions": {
             "strings": true
         },
