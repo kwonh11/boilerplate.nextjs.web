@@ -11,13 +11,21 @@ const Page = styled.div`
   width: 100%;
   height: 100vh;
   background-color: ${(props) => props.color};
-  transform: translateY(-${(props) => props.index * props.itemHeight}px);
+  transform: translateY(-${(props) => {
+    return props.max == props.index ? ((props.index -1) * props.itemHeight) + 500 : props.index * props.itemHeight
+    }
+  }px);
   transition: transform 0.5s ease-out;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 30px;
   font-weight: bold;
+`;
+const Footer = styled.div`
+  width: 100%;
+  height: 500px;
+  background-color: black;
 `;
 
 export default function FullPage() {
@@ -63,7 +71,7 @@ export default function FullPage() {
   const pageUp = () =>
     setCurrentPageIndex(currentPageIndex === 0 ? 0 : currentPageIndex - 1);
   const pageDown = () =>
-    setCurrentPageIndex(currentPageIndex === 3 ? 3 : currentPageIndex + 1);
+    setCurrentPageIndex(currentPageIndex === 4 ? 4 : currentPageIndex + 1);
 
   return (
     <Container
@@ -73,33 +81,40 @@ export default function FullPage() {
     >
       <Page
         ref={pageRef}
+        index={currentPageIndex}
+        itemHeight={pageRef.current.offsetHeight}
+        max={4}
         color="green"
-        index={currentPageIndex}
-        itemHeight={pageRef.current.offsetHeight}
       >
         {currentPageIndex}
       </Page>
       <Page
+        index={currentPageIndex}
+        itemHeight={pageRef.current.offsetHeight}
+        max={4}
         color="yellow"
-        index={currentPageIndex}
-        itemHeight={pageRef.current.offsetHeight}
       >
         {currentPageIndex}
       </Page>
       <Page
-        color="purple"
         index={currentPageIndex}
         itemHeight={pageRef.current.offsetHeight}
-      >
-        {currentPageIndex}
-      </Page>
-      <Page
+        max={4}
         color="blue"
-        index={currentPageIndex}
-        itemHeight={pageRef.current.offsetHeight}
       >
         {currentPageIndex}
       </Page>
+      <Page
+        index={currentPageIndex}
+        itemHeight={pageRef.current.offsetHeight}
+        max={4}
+        color="purple"
+      >
+        {currentPageIndex}
+      </Page>
+      <Footer>
+    textextextexxtextxetxetxetex
+      </Footer>
     </Container>
   );
 }
